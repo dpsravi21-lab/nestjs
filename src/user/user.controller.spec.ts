@@ -15,4 +15,11 @@ describe('UserController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('should filter users by provided names array', () => {
+    const result = controller.getUser(['jon']);
+
+    expect(result).toHaveLength(1);
+    expect(result[0].name).toBe('jon Doe');
+  });
 });
